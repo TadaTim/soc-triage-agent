@@ -1,0 +1,14 @@
+{
+  "note": "Asset inventory snapshot: criticality drives scoring weight in enrichment.",
+  "assets": [
+    {"host": "DC-01", "ip": "10.13.1.10", "criticality": "critical", "owner": "infrastructure", "type": "domain_controller"},
+    {"host": "SRV-2001", "ip": "10.13.4.21", "criticality": "high", "owner": "infrastructure", "type": "file_server"},
+    {"host": "SRV-2002", "ip": "10.13.4.20", "criticality": "medium", "owner": "infrastructure", "type": "backup_server"},
+    {"host": "SRV-2003", "ip": "10.13.4.22", "criticality": "high", "owner": "engineering", "type": "build_server"},
+    {"host": "WS-1005", "ip": "10.13.7.15", "criticality": "medium", "owner": "finance", "type": "workstation"},
+    {"host": "WS-1012", "ip": "10.13.7.22", "criticality": "low", "owner": "support", "type": "workstation"},
+    {"host": "WS-1031", "ip": "10.13.7.41", "criticality": "medium", "owner": "security", "type": "workstation"},
+    {"host": "WS-1042", "ip": "10.13.7.52", "criticality": "medium", "owner": "engineering", "type": "workstation"},
+    {"host": "WS-1050", "ip": "10.13.7.60", "criticality": "low", "owner": "operations", "type": "workstation"}
+  ]
+}

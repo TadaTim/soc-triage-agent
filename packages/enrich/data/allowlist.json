@@ -1,0 +1,15 @@
+{
+  "note": "SOC allowlists: vulnerability scanner, branch-office egress, trusted update/popular domains, and authorized red-team engagement windows (the pentest calendar).",
+  "scanner_ips": ["10.13.0.50"],
+  "office_egress_ips": ["72.165.34.18"],
+  "trusted_domains": [
+    "update.microsoft.com",
+    "download.mozilla.org",
+    "archive.ubuntu.com",
+    "dl.google.com",
+    "swcdn.apple.com"
+  ],
+  "pentest_engagements": [
+    {"host": "WS-1031", "start": "2026-01-12", "end": "2026-01-16", "ticket": "PT-2026-118"}
+  ]
+}

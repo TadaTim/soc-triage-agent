@@ -1,0 +1,38 @@
+# Prometheus alert rules for the SOC Triage Agent.
+# The first rule is the asymmetric-cost one: a drop in benign-closure
+# precision means real attacks are being closed as benign — page immediately.
+groups:
+  - name: soc-triage
+    rules:
+      - alert: BenignClosurePrecisionDrop
+        expr: soc_benign_closure_precision < 0.99
+        for: 0m
+        labels:
+          severity: page
+        annotations:
+          summary: "Benign-closure precision below 0.99 (sampled human re-review)"
+          description: "Real attacks may be closing as benign. Halt auto-closure and re-review recent benign verdicts."
+      - alert: StormModeProlonged
+        expr: soc_storm_mode == 1
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Storm mode active for over 30 minutes"
+          description: "Enrichment has been shedding optional intel lookups for 30m; verdict quality is degraded."
+      - alert: DeadLetterBacklog
+        expr: soc_dlq_depth > 0
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Dead-letter depth above zero for 5 minutes"
+          description: "Poison or exhausted messages are accumulating in alerts.dlq."
+      - alert: EscalationRateHigh
+        expr: rate(soc_escalations_total[10m]) / rate(soc_alerts_ingested_total[10m]) > 0.10
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Escalation rate above 10%"
+          description: "Blended cost per alert will breach the $0.015 target if this persists."

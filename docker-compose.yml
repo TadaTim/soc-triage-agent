@@ -1,0 +1,75 @@
+# Local development stack: Redpanda (Kafka API), Postgres, Redis.
+# Topics are NOT created here by hand-waving: they are declared as code in
+# packages/schemas/topics.py and provisioned by apps/consumers (ensure_topics).
+services:
+  redpanda:
+    image: redpandadata/redpanda:v24.1.10
+    command:
+      - redpanda
+      - start
+      - --kafka-addr=internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr=internal://redpanda:9092,external://localhost:19092
+      - --schema-registry-addr=internal://0.0.0.0:8081,external://0.0.0.0:18081
+      - --rpc-addr=redpanda:33145
+      - --advertise-rpc-addr=redpanda:33145
+      - --smp=1
+      - --memory=1G
+      - --overprovisioned
+    ports:
+      - "19092:19092"
+      - "18081:18081"
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: soc
+      POSTGRES_PASSWORD: soc-local-dev
+      POSTGRES_DB: soc_triage
+    ports:
+      - "15432:5432"
+    volumes:
+      - soc-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U soc -d soc_triage"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "16379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  # Observability (Stage 8): trace backend + dashboards.
+  tempo:
+    image: grafana/tempo:2.4.1
+    ports:
+      - "13200:3200"
+      - "14317:4317"   # OTLP gRPC
+      - "14318:4318"   # OTLP HTTP
+    volumes:
+      - soc-tempo:/tmp/tempo
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+    ports:
+      - "13000:3000"
+    volumes:
+      - ./observability/grafana-dashboard.json:/var/lib/grafana/dashboards/soc-triage.json:ro
+
+volumes:
+  soc-pgdata:
+  soc-tempo:

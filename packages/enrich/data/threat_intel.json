@@ -1,0 +1,938 @@
+{
+  "version": "2026-01-15",
+  "note": "Synthetic threat-intel snapshot built from packages/evals/pools.py by tools/build_intel_feed.py. All indicators are illustrative.",
+  "indicators": [
+    {
+      "value": "185.220.101.7",
+      "type": "ipv4",
+      "confidence": 0.86,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "185.220.101.23",
+      "type": "ipv4",
+      "confidence": 0.87,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "185.220.101.41",
+      "type": "ipv4",
+      "confidence": 0.88,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "185.220.101.88",
+      "type": "ipv4",
+      "confidence": 0.89,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "185.220.101.130",
+      "type": "ipv4",
+      "confidence": 0.9,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "185.220.101.254",
+      "type": "ipv4",
+      "confidence": 0.91,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "45.155.204.7",
+      "type": "ipv4",
+      "confidence": 0.92,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "45.155.204.23",
+      "type": "ipv4",
+      "confidence": 0.93,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "45.155.204.41",
+      "type": "ipv4",
+      "confidence": 0.94,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "45.155.204.88",
+      "type": "ipv4",
+      "confidence": 0.95,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "45.155.204.130",
+      "type": "ipv4",
+      "confidence": 0.96,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "45.155.204.254",
+      "type": "ipv4",
+      "confidence": 0.97,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "193.32.162.7",
+      "type": "ipv4",
+      "confidence": 0.98,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "193.32.162.23",
+      "type": "ipv4",
+      "confidence": 0.99,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "193.32.162.41",
+      "type": "ipv4",
+      "confidence": 0.86,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "193.32.162.88",
+      "type": "ipv4",
+      "confidence": 0.87,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "193.32.162.130",
+      "type": "ipv4",
+      "confidence": 0.88,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "193.32.162.254",
+      "type": "ipv4",
+      "confidence": 0.89,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "91.240.118.7",
+      "type": "ipv4",
+      "confidence": 0.9,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "91.240.118.23",
+      "type": "ipv4",
+      "confidence": 0.91,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "91.240.118.41",
+      "type": "ipv4",
+      "confidence": 0.92,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "91.240.118.88",
+      "type": "ipv4",
+      "confidence": 0.93,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "91.240.118.130",
+      "type": "ipv4",
+      "confidence": 0.94,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "91.240.118.254",
+      "type": "ipv4",
+      "confidence": 0.95,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "103.75.201.7",
+      "type": "ipv4",
+      "confidence": 0.96,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "103.75.201.23",
+      "type": "ipv4",
+      "confidence": 0.97,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "103.75.201.41",
+      "type": "ipv4",
+      "confidence": 0.98,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "103.75.201.88",
+      "type": "ipv4",
+      "confidence": 0.99,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "103.75.201.130",
+      "type": "ipv4",
+      "confidence": 0.86,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "103.75.201.254",
+      "type": "ipv4",
+      "confidence": 0.87,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "196.251.72.7",
+      "type": "ipv4",
+      "confidence": 0.88,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "196.251.72.23",
+      "type": "ipv4",
+      "confidence": 0.89,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "stealer"
+      ]
+    },
+    {
+      "value": "196.251.72.41",
+      "type": "ipv4",
+      "confidence": 0.9,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "ransomware"
+      ]
+    },
+    {
+      "value": "196.251.72.88",
+      "type": "ipv4",
+      "confidence": 0.91,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "rat"
+      ]
+    },
+    {
+      "value": "196.251.72.130",
+      "type": "ipv4",
+      "confidence": 0.92,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "196.251.72.254",
+      "type": "ipv4",
+      "confidence": 0.93,
+      "source": "feed:community-threat-intel",
+      "tags": [
+        "c2",
+        "loader"
+      ]
+    },
+    {
+      "value": "cdn-update-service.net",
+      "type": "domain",
+      "confidence": 0.85,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "secure-login-verify.com",
+      "type": "domain",
+      "confidence": 0.86,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "account-recovery-portal.net",
+      "type": "domain",
+      "confidence": 0.87,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "fileshare-delivery.com",
+      "type": "domain",
+      "confidence": 0.88,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "doc-viewer-online.net",
+      "type": "domain",
+      "confidence": 0.89,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "payment-confirm-center.com",
+      "type": "domain",
+      "confidence": 0.9,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "telemetry-collect.io",
+      "type": "domain",
+      "confidence": 0.91,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "update-flash-player.net",
+      "type": "domain",
+      "confidence": 0.92,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "mailbox-quota-alert.com",
+      "type": "domain",
+      "confidence": 0.93,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "storage-sync-service.net",
+      "type": "domain",
+      "confidence": 0.94,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "invoice-portal-online.com",
+      "type": "domain",
+      "confidence": 0.95,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "hr-benefits-login.net",
+      "type": "domain",
+      "confidence": 0.96,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "tax-docs-secure.com",
+      "type": "domain",
+      "confidence": 0.97,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "parcel-tracking-hub.net",
+      "type": "domain",
+      "confidence": 0.98,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "banking-session-verify.com",
+      "type": "domain",
+      "confidence": 0.99,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "cloud-drive-share.net",
+      "type": "domain",
+      "confidence": 0.85,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "vpn-gateway-update.com",
+      "type": "domain",
+      "confidence": 0.86,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "helpdesk-ticket-portal.net",
+      "type": "domain",
+      "confidence": 0.87,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "crypto-wallet-verify.io",
+      "type": "domain",
+      "confidence": 0.88,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "streaming-account-alert.com",
+      "type": "domain",
+      "confidence": 0.89,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "utility-bill-pay.net",
+      "type": "domain",
+      "confidence": 0.9,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "travel-booking-confirm.com",
+      "type": "domain",
+      "confidence": 0.91,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "software-license-renew.net",
+      "type": "domain",
+      "confidence": 0.92,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "domain-expiry-notice.com",
+      "type": "domain",
+      "confidence": 0.93,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "payroll-direct-update.net",
+      "type": "domain",
+      "confidence": 0.94,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "insurance-claim-portal.com",
+      "type": "domain",
+      "confidence": 0.95,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "edu-portal-signin.net",
+      "type": "domain",
+      "confidence": 0.96,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "gov-forms-download.com",
+      "type": "domain",
+      "confidence": 0.97,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "mobile-carrier-alert.net",
+      "type": "domain",
+      "confidence": 0.98,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "phishing"
+      ]
+    },
+    {
+      "value": "loyalty-points-claim.com",
+      "type": "domain",
+      "confidence": 0.99,
+      "source": "feed:phishing-url-exchange",
+      "tags": [
+        "c2"
+      ]
+    },
+    {
+      "value": "ed747027da8f3b84f06a8e494df9e576a56bbc7904477c4809b3a83345ab13ee",
+      "type": "sha256",
+      "confidence": 0.9,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "dce61ba4545470f28462da22e930ac83d6e9f28a3d8882e3284e9bd127cd259f",
+      "type": "sha256",
+      "confidence": 0.91,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "a4cbad69ecc094c87f3c5b44c0beb7cf1fcbbab81eb5c0c846ec5e5c3dd842aa",
+      "type": "sha256",
+      "confidence": 0.92,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "453671fe4931894796a69cd93350a658cc83137cd3a6e1e28a4c44dae8b50177",
+      "type": "sha256",
+      "confidence": 0.93,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "8e4ab1f0450babcef97a4f7c488b0342800f175dc57e63962c265e918a097fda",
+      "type": "sha256",
+      "confidence": 0.94,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    },
+    {
+      "value": "fcfe82676a2f0b5a5ed7a96b094f700f34e5b76544f540fa5657d56d3d5a7cfb",
+      "type": "sha256",
+      "confidence": 0.95,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "e2c3c1a0a5bdcf4e61b8837b5266d145742fae0d24a9e2a03cadc5abaec5d50e",
+      "type": "sha256",
+      "confidence": 0.96,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "b67179558258f5fe81d1e124e584cd9bdbf445c5b8c260688bd6f8fd995a207d",
+      "type": "sha256",
+      "confidence": 0.97,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "3c00a73a7aff599aaed53df6c28f50fd7cba76e84dd13d9130b2bd5c03a8fbe7",
+      "type": "sha256",
+      "confidence": 0.98,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "79aa0924b714bfa993c8f502476df2f1e75d98b8c9318b69c1501866a0f6f0d2",
+      "type": "sha256",
+      "confidence": 0.99,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    },
+    {
+      "value": "26b2e598664d85c4c0e4272809575a6e65986857c72a9df534e14ba449c20ed5",
+      "type": "sha256",
+      "confidence": 0.9,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "e573ffb3ea112e2895a50ccb2205978096361ed32a9114cc711435df4d1477f5",
+      "type": "sha256",
+      "confidence": 0.91,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "910b234d042a380271e5550629e59b55b65e6299d426737f0549e86f56c6e538",
+      "type": "sha256",
+      "confidence": 0.92,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "f2d58d43e59f5a3b38d0a4ab277cfb51d094ef9a8ab2923f98c55595ff2212c3",
+      "type": "sha256",
+      "confidence": 0.93,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "e09db2a0ca0eb93d2a24e396a78df6972f23587b4ed19c5f937866e1bdc7ef5c",
+      "type": "sha256",
+      "confidence": 0.94,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    },
+    {
+      "value": "dd2936a9c1e95d500a56792d57fb3dff17829e686be18846eb78f47d39c5e113",
+      "type": "sha256",
+      "confidence": 0.95,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "73e6646db2d72dadf530836e2b3058c7cb09ef173d6eb18db53f7442e1086079",
+      "type": "sha256",
+      "confidence": 0.96,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "1cca77059da3877ccfd5ca246763a26de382fa7cd904485cc7e7cc4302ae1a82",
+      "type": "sha256",
+      "confidence": 0.97,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "4879b5571ff30bccfeecbd5d07e2caff79cd5f276b77821b4e0c51c794339f60",
+      "type": "sha256",
+      "confidence": 0.98,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "119f97b63e9f566728db02f93bda7b91d3ba82bf578a737d68cc0853df3cbef2",
+      "type": "sha256",
+      "confidence": 0.99,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    },
+    {
+      "value": "f494d174916ec466b41b23d7786d44631d0f4df97793b9a2854490f951dc72a4",
+      "type": "sha256",
+      "confidence": 0.9,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "dc573107dbe48c33f599cd922ec6b4158efb881d1c2d77bdfca98db31d6362b5",
+      "type": "sha256",
+      "confidence": 0.91,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "4218e24f13ee3af36a1a237f3ce67fc34ec99fa229c128585219a90035e17033",
+      "type": "sha256",
+      "confidence": 0.92,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "cbc65ad74f241f46e0e3ebfaac0e5326be54889a9e39ae6512b445199eba8c32",
+      "type": "sha256",
+      "confidence": 0.93,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "10d7d6bbc26b434954782df67d57c97c2d63fd477f9a8cc1690adc51ffd6ff8a",
+      "type": "sha256",
+      "confidence": 0.94,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    },
+    {
+      "value": "164deef0beefbf508d756a08bfb15f2304f832c45fef1b614eef586ccf6f0244",
+      "type": "sha256",
+      "confidence": 0.95,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "ransomware"
+      ]
+    },
+    {
+      "value": "39cb0dbda0a877dabf789f503cba35b9103aeb01fc67e4ad90a7b053c90897db",
+      "type": "sha256",
+      "confidence": 0.96,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "rat"
+      ]
+    },
+    {
+      "value": "e11d6c9e9151ecd2602cf4bd0ef160d89e5cdb193e0777b6fd8c479e74bf1afa",
+      "type": "sha256",
+      "confidence": 0.97,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "phishing-kit"
+      ]
+    },
+    {
+      "value": "ab102e66500ae85ecc6ccd64cd8ecfffe089e8347c163f9aec1d509f6971d9dc",
+      "type": "sha256",
+      "confidence": 0.98,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "loader"
+      ]
+    },
+    {
+      "value": "51a3a9791263c090de6b1e6038f0cdb2b1742b05de7548fd157c7c4f4fdf0c04",
+      "type": "sha256",
+      "confidence": 0.99,
+      "source": "feed:malware-sample-exchange",
+      "tags": [
+        "stealer"
+      ]
+    }
+  ],
+  "known_good_sha256": [
+    "0ea601f4b0bedfd69ac32e053142b03f5cc38cf3e9c8a1002f2b52240ca5ccf2",
+    "f28b592b0c68399a1ca06da03744f7e6f2940deab63ba9b8bca74b1b9de5f1c4",
+    "e002e4f5601463d3e36928d5e86b29530796642c5c54d81ec646ab3eaf65c353",
+    "ece07922bc0ace71c9cfa1e69a4e01ad40e7f640d64daf975fc5c7f97333ed0b",
+    "185fd5e230caf362ee009fb71d63d4681135093512d4e5bec6568f0d3bc37a4f",
+    "554588a0a383b6747345dae657d92a01d87c297ffb6492c505493ffe915f98f2",
+    "7d3c3b3c629ee56c5f42f64dbb4dfe6488380d4f383d2b6c13d6e9cece4f2cf2",
+    "596b7f0015b18584f0bd67b9e62578cf5ddcd8ed1c7be0452e7a887db9358382",
+    "56287c36f3e5bb890313234c811c704aed5fc7a145510b21a616a491653e9601",
+    "0b08973abe27cc614085b9648966b741a998abb0059e18aa8bbf6944932de298",
+    "7ebc10284acbe77626a7641c54f119f04de4946117c12db47eb27ef3ba9e8ce9",
+    "65e5f39e45e78a5b0994e795e92eabad3b8b2025c4c882b004ae32ecb040db0e",
+    "a1fca76ad06eeb2b1b5118c2b3bbe64f543a6f9f9f5780f2d0de5356a1f21c49",
+    "5eb05bdea241f951bbf84ee5de69e4befe62650f0e17aa4a69eb2d46b7ed10e8",
+    "fdda8c60a8848814cef997a28158f6fdb10c1ba4921b9066ac78c74ec0d0a090",
+    "9af54315bdbebea6a10059eecd35cec81cf86e58ca4d32f1ff4d1808a621995f",
+    "36c257d3448bd722598a7eb47cb326fe2d8da2ede3fcfc3cd793b51ea07781bb",
+    "9a57e3dde5a3fcb878cb5c2382a447ce14850d81611d8822c99908d3c54b1e96",
+    "e72ac0075a426456709334157ec5edd10f190e76fa8877a30606bb63bf8878c0",
+    "a71c00228e74c3502d88af6e75a8b674de225ffe5ab16f0ecd7585d72baa58da",
+    "1d8ea0c5317962e0bc6e6300a097e9603f5c46db6aec27556edd645c211f42eb",
+    "f186545ec6bd846baaea93e3b98822a9d4244c120e81a40698925a601a625a25",
+    "36a72cfbac6a5bc96f304e6cc6898adf2727461647f7164054076647f0696ce4",
+    "dbce8e625f04c6f9c09372c908d70c95db198785429c358c84922f2b1f8f407a",
+    "0ac652d0eaad4079bf8af2d1a2644c82c2d680b5b463ee6976938aa4766de3c6",
+    "6e9b8a2d1e96f140001b8f718cb90856a292923913f2912629760eb65a221305",
+    "a7edc8e32cec7385f214dc044072282bc55c0dcc8245383e3c0495f44343ab92",
+    "6b09099c43a91496d2bf9113a38ca48b834490066293e9b91ba9d47500af111a",
+    "8be29ba92765c767ddb3c67a2c08a6a1b7d4fcb8c90f17951cbb2c4a31de7d0b",
+    "4d69a2d82b0e46be1dfa6d38de6676f692cf12c78a2af3ccd35a09c545179627"
+  ]
+}

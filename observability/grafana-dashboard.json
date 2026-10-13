@@ -1,0 +1,72 @@
+{
+  "title": "SOC Triage Agent",
+  "uid": "soc-triage",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "title": "Verdict latency p95 by stage",
+      "type": "timeseries",
+      "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum by (stage, le) (rate(soc_verdict_latency_seconds_bucket[5m])))",
+          "legendFormat": "{{stage}}"
+        }
+      ],
+      "description": "Targets: enrich triage p95 <= 30s end-to-end; investigation p95 <= 90s."
+    },
+    {
+      "title": "Dedup ratio",
+      "type": "timeseries",
+      "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+      "targets": [
+        {
+          "expr": "soc_alerts_duplicated_total / soc_alerts_ingested_total",
+          "legendFormat": "duplicated share"
+        }
+      ],
+      "description": "Share of ingested alerts collapsed as duplicates before any LLM spend."
+    },
+    {
+      "title": "Escalation rate",
+      "type": "timeseries",
+      "gridPos": {"x": 0, "y": 8, "w": 8, "h": 8},
+      "targets": [
+        {
+          "expr": "rate(soc_escalations_total[5m]) / rate(soc_alerts_ingested_total[5m])",
+          "legendFormat": "escalation rate"
+        }
+      ],
+      "description": "Must stay <= ~5% for the $0.015/alert blended cost target."
+    },
+    {
+      "title": "LLM spend (USD)",
+      "type": "timeseries",
+      "gridPos": {"x": 8, "y": 8, "w": 8, "h": 8},
+      "targets": [{"expr": "rate(soc_llm_spend_usd_total[5m])", "legendFormat": "usd/s"}]
+    },
+    {
+      "title": "Verdicts by disposition",
+      "type": "timeseries",
+      "gridPos": {"x": 16, "y": 8, "w": 8, "h": 8},
+      "targets": [
+        {
+          "expr": "sum by (disposition) (rate(soc_verdicts_total[5m]))",
+          "legendFormat": "{{disposition}}"
+        }
+      ]
+    },
+    {
+      "title": "Pipeline health: lag / storm / DLQ",
+      "type": "timeseries",
+      "gridPos": {"x": 0, "y": 16, "w": 24, "h": 8},
+      "targets": [
+        {"expr": "soc_consumer_lag", "legendFormat": "consumer lag"},
+        {"expr": "soc_storm_mode", "legendFormat": "storm mode"},
+        {"expr": "soc_dlq_depth", "legendFormat": "DLQ depth"}
+      ]
+    }
+  ]
+}
