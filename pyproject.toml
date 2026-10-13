@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soc-triage-agent"
+version = "0.1.0"
+description = "Autonomous SOC Triage & Investigation Agent — deterministic enrichment pipeline, bounded LLM investigation, policy-gated containment"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.6",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+api = ["uvicorn>=0.29"]
+consumer = ["kafka-python>=2.0"]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "httpx>=0.27",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "alembic>=1.13",
+    "sqlalchemy>=2.0",
+    "opentelemetry-api>=1.24",
+    "opentelemetry-sdk>=1.24",
+    "pyyaml>=6",
+]
+
+[tool.setuptools]
+packages = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+mypy_path = "."
+
+[[tool.mypy.overrides]]
+module = ["tests.*", "tools.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["alembic.*", "sqlalchemy.*", "fastapi.*", "starlette.*", "uvicorn.*", "opentelemetry.*", "kafka.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "integration: requires Docker services (Kafka/Postgres); skipped when unavailable",
+]
+addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+source = ["packages", "apps"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
