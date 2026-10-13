@@ -1,0 +1,646 @@
+{
+  "Alert": {
+    "$defs": {
+      "Severity": {
+        "enum": [
+          "info",
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "title": "Severity",
+        "type": "string"
+      }
+    },
+    "description": "A normalized alert. `event_time` (sensor clock) and `ingest_time`\n(our clock) are distinct fields because sensor clock skew is a\nfirst-class concern: late events re-open verdicts explicitly.",
+    "properties": {
+      "dst_ip": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Dst Ip"
+      },
+      "event_time": {
+        "format": "date-time",
+        "title": "Event Time",
+        "type": "string"
+      },
+      "host": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Host"
+      },
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "ingest_time": {
+        "format": "date-time",
+        "title": "Ingest Time",
+        "type": "string"
+      },
+      "payload": {
+        "title": "Payload",
+        "type": "string"
+      },
+      "payload_hash": {
+        "default": "",
+        "title": "Payload Hash",
+        "type": "string"
+      },
+      "sensor_id": {
+        "title": "Sensor Id",
+        "type": "string"
+      },
+      "severity": {
+        "$ref": "#/$defs/Severity"
+      },
+      "source": {
+        "title": "Source",
+        "type": "string"
+      },
+      "src_ip": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Src Ip"
+      },
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "user": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "User"
+      }
+    },
+    "required": [
+      "id",
+      "source",
+      "sensor_id",
+      "severity",
+      "title",
+      "event_time",
+      "ingest_time",
+      "payload"
+    ],
+    "title": "Alert",
+    "type": "object"
+  },
+  "ApprovalRequest": {
+    "$defs": {
+      "ApprovalStatus": {
+        "enum": [
+          "pending",
+          "approved",
+          "rejected"
+        ],
+        "title": "ApprovalStatus",
+        "type": "string"
+      },
+      "ContainmentAction": {
+        "enum": [
+          "isolate_host",
+          "disable_account",
+          "block_indicator"
+        ],
+        "title": "ContainmentAction",
+        "type": "string"
+      }
+    },
+    "description": "The ONLY representation of a containment action in this system.\n\nA human records a decision (approved/rejected). Nothing in this codebase\nexecutes the action; execution belongs to external response tooling that\nconsumes approved requests. There is intentionally no `execute` field,\nmethod, or API route.",
+    "properties": {
+      "action": {
+        "$ref": "#/$defs/ContainmentAction"
+      },
+      "created_at": {
+        "format": "date-time",
+        "title": "Created At",
+        "type": "string"
+      },
+      "decided_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Decided At"
+      },
+      "decided_by": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Decided By"
+      },
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "justification": {
+        "title": "Justification",
+        "type": "string"
+      },
+      "report_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Report Id"
+      },
+      "requested_by": {
+        "title": "Requested By",
+        "type": "string"
+      },
+      "status": {
+        "$ref": "#/$defs/ApprovalStatus",
+        "default": "pending"
+      },
+      "target": {
+        "title": "Target",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "action",
+      "target",
+      "justification",
+      "requested_by",
+      "created_at"
+    ],
+    "title": "ApprovalRequest",
+    "type": "object"
+  },
+  "DeadLetterEntry": {
+    "properties": {
+      "attempts": {
+        "default": 0,
+        "title": "Attempts",
+        "type": "integer"
+      },
+      "created_at": {
+        "format": "date-time",
+        "title": "Created At",
+        "type": "string"
+      },
+      "error_history": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Error History",
+        "type": "array"
+      },
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "payload": {
+        "title": "Payload",
+        "type": "string"
+      },
+      "topic": {
+        "title": "Topic",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "topic",
+      "payload",
+      "created_at"
+    ],
+    "title": "DeadLetterEntry",
+    "type": "object"
+  },
+  "EnrichmentRecord": {
+    "description": "One typed enrichment fact, with provenance and confidence.",
+    "properties": {
+      "confidence": {
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "title": "Confidence",
+        "type": "number"
+      },
+      "detail": {
+        "additionalProperties": true,
+        "title": "Detail",
+        "type": "object"
+      },
+      "ioc_value": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Ioc Value"
+      },
+      "kind": {
+        "title": "Kind",
+        "type": "string"
+      },
+      "source": {
+        "title": "Source",
+        "type": "string"
+      }
+    },
+    "required": [
+      "kind",
+      "source",
+      "confidence"
+    ],
+    "title": "EnrichmentRecord",
+    "type": "object"
+  },
+  "EnrichmentResult": {
+    "$defs": {
+      "EnrichmentRecord": {
+        "description": "One typed enrichment fact, with provenance and confidence.",
+        "properties": {
+          "confidence": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence",
+            "type": "number"
+          },
+          "detail": {
+            "additionalProperties": true,
+            "title": "Detail",
+            "type": "object"
+          },
+          "ioc_value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Ioc Value"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source",
+          "confidence"
+        ],
+        "title": "EnrichmentRecord",
+        "type": "object"
+      },
+      "IoC": {
+        "description": "An extracted indicator. `value` is the normalized form; `raw` is the\nexact substring of the payload at [start, end) (offsets are into the\nORIGINAL payload, even when the raw form is defanged, e.g. `hxxp://`\nor `1.2.3[.]4`).",
+        "properties": {
+          "end": {
+            "exclusiveMinimum": 0,
+            "title": "End",
+            "type": "integer"
+          },
+          "raw": {
+            "title": "Raw",
+            "type": "string"
+          },
+          "start": {
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          },
+          "type": {
+            "$ref": "#/$defs/IoCType"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "value",
+          "raw",
+          "start",
+          "end"
+        ],
+        "title": "IoC",
+        "type": "object"
+      },
+      "IoCType": {
+        "enum": [
+          "ipv4",
+          "ipv6",
+          "domain",
+          "url",
+          "sha256",
+          "sha1",
+          "md5",
+          "email",
+          "file",
+          "cve"
+        ],
+        "title": "IoCType",
+        "type": "string"
+      }
+    },
+    "properties": {
+      "alert_id": {
+        "title": "Alert Id",
+        "type": "string"
+      },
+      "degraded": {
+        "default": false,
+        "title": "Degraded",
+        "type": "boolean"
+      },
+      "iocs": {
+        "items": {
+          "$ref": "#/$defs/IoC"
+        },
+        "title": "Iocs",
+        "type": "array"
+      },
+      "records": {
+        "items": {
+          "$ref": "#/$defs/EnrichmentRecord"
+        },
+        "title": "Records",
+        "type": "array"
+      },
+      "score": {
+        "default": 0.0,
+        "title": "Score",
+        "type": "number"
+      },
+      "signals": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Signals",
+        "type": "array"
+      }
+    },
+    "required": [
+      "alert_id"
+    ],
+    "title": "EnrichmentResult",
+    "type": "object"
+  },
+  "InvestigationReport": {
+    "$defs": {
+      "RecommendedAction": {
+        "enum": [
+          "none",
+          "monitor",
+          "collect_forensics",
+          "request_containment_approval",
+          "escalate_to_ir"
+        ],
+        "title": "RecommendedAction",
+        "type": "string"
+      },
+      "Severity": {
+        "enum": [
+          "info",
+          "low",
+          "medium",
+          "high",
+          "critical"
+        ],
+        "title": "Severity",
+        "type": "string"
+      }
+    },
+    "description": "LLM-produced investigation output. Every value in `ioc_values` MUST\nresolve to an IoC in the alert's EnrichmentResult \u2014 see validate_iocs.",
+    "properties": {
+      "alert_id": {
+        "title": "Alert Id",
+        "type": "string"
+      },
+      "confidence": {
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "title": "Confidence",
+        "type": "number"
+      },
+      "ioc_values": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Ioc Values",
+        "type": "array"
+      },
+      "recommended_actions": {
+        "items": {
+          "$ref": "#/$defs/RecommendedAction"
+        },
+        "title": "Recommended Actions",
+        "type": "array"
+      },
+      "severity_proposal": {
+        "$ref": "#/$defs/Severity"
+      },
+      "summary": {
+        "title": "Summary",
+        "type": "string"
+      }
+    },
+    "required": [
+      "alert_id",
+      "summary",
+      "severity_proposal",
+      "confidence"
+    ],
+    "title": "InvestigationReport",
+    "type": "object"
+  },
+  "IoC": {
+    "$defs": {
+      "IoCType": {
+        "enum": [
+          "ipv4",
+          "ipv6",
+          "domain",
+          "url",
+          "sha256",
+          "sha1",
+          "md5",
+          "email",
+          "file",
+          "cve"
+        ],
+        "title": "IoCType",
+        "type": "string"
+      }
+    },
+    "description": "An extracted indicator. `value` is the normalized form; `raw` is the\nexact substring of the payload at [start, end) (offsets are into the\nORIGINAL payload, even when the raw form is defanged, e.g. `hxxp://`\nor `1.2.3[.]4`).",
+    "properties": {
+      "end": {
+        "exclusiveMinimum": 0,
+        "title": "End",
+        "type": "integer"
+      },
+      "raw": {
+        "title": "Raw",
+        "type": "string"
+      },
+      "start": {
+        "minimum": 0,
+        "title": "Start",
+        "type": "integer"
+      },
+      "type": {
+        "$ref": "#/$defs/IoCType"
+      },
+      "value": {
+        "title": "Value",
+        "type": "string"
+      }
+    },
+    "required": [
+      "type",
+      "value",
+      "raw",
+      "start",
+      "end"
+    ],
+    "title": "IoC",
+    "type": "object"
+  },
+  "Verdict": {
+    "$defs": {
+      "DecidedBy": {
+        "enum": [
+          "deterministic",
+          "llm",
+          "human"
+        ],
+        "title": "DecidedBy",
+        "type": "string"
+      },
+      "Disposition": {
+        "enum": [
+          "benign",
+          "suspicious",
+          "malicious",
+          "needs_human"
+        ],
+        "title": "Disposition",
+        "type": "string"
+      }
+    },
+    "description": "Append-only decision record. Re-opened verdicts supersede explicitly.",
+    "properties": {
+      "alert_id": {
+        "title": "Alert Id",
+        "type": "string"
+      },
+      "created_at": {
+        "format": "date-time",
+        "title": "Created At",
+        "type": "string"
+      },
+      "decided_by": {
+        "$ref": "#/$defs/DecidedBy"
+      },
+      "disposition": {
+        "$ref": "#/$defs/Disposition"
+      },
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "lineage": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Lineage",
+        "type": "array"
+      },
+      "rationale": {
+        "title": "Rationale",
+        "type": "string"
+      },
+      "score": {
+        "default": 0.0,
+        "title": "Score",
+        "type": "number"
+      },
+      "supersedes_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Supersedes Id"
+      }
+    },
+    "required": [
+      "id",
+      "alert_id",
+      "disposition",
+      "decided_by",
+      "rationale",
+      "created_at"
+    ],
+    "title": "Verdict",
+    "type": "object"
+  }
+}
